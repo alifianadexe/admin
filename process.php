@@ -35,7 +35,7 @@ if($_POST['type_process'] == "add_product"){
 
     if (mysqli_query($conn, $sql)) {
         echo "Data Berhasil Ditambah";
-        header("Location: add-user.php");
+        header("Location: add-konsumen.php");
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }

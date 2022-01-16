@@ -8,16 +8,16 @@ include('sidenav.php');
     <main>
         <!-- edit just on main -->
         <div class="container-fluid px-4">
-            <h1 class="mt-4">Tambah User</h1>
+            <h1 class="mt-4">Tambah Konsument</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                <li class="breadcrumb-item active">Tambah User</li>
+                <li class="breadcrumb-item active">Tambah Konsument</li>
             </ol>
             <div class="card border-0 rounded-lg mt-5">
             <div class="row">
                 <div class="card-body col-md-6">
                     <form action="process.php" method="post">
-                        <input type="hidden" name="type_process" value="add_product" id="type_process">
+                        <input type="hidden" name="type_process" value="add_konsumen" id="type_process">
                         <div class="row mb-3">
                             <div class="col-md-12">
                                 <div class="form-floating mb-3 mb-md-0">
@@ -44,16 +44,6 @@ include('sidenav.php');
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-12">
-                                <div class="form-floating mb-3 mb-md-0">
-                                    <select name="role" class="form-control" >
-                                        <option value="user">User</option>
-                                        <option value="admin">Admin</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-md-12">
                             <div class="d-grid"><input class="btn btn-primary btn-block" value="Tambah User" type="submit"></div>
                             </div>
                         </div>
@@ -67,9 +57,7 @@ include('sidenav.php');
                             <tr>
                                 <th>ID</th>
                                 <th>Nama</th>
-                                <th>Deskripsi</th>
-                                <th>Harga</th>
-                                <th>Action</th>
+                                <th>Username</th>
                             </tr>
                         </thead>
                         <tfoot>
@@ -77,13 +65,11 @@ include('sidenav.php');
                                 <th>Name</th>
                                 <th>Position</th>
                                 <th>Office</th>
-                                <th>Age</th>
-                                <th>Action</th>
                             </tr>
                         </tfoot>
                         <tbody>
                             <?php 
-                                $sql = "SELECT * FROM tbl_sembako";
+                                $sql = "SELECT * FROM tbl_konsumen";
                                 $result = $conn->query($sql);
                                 
                                 if ($result->num_rows > 0) {
@@ -91,13 +77,12 @@ include('sidenav.php');
                                   while($row = $result->fetch_assoc()) {
                                ?>
                                 <tr>
-                                    <td><?=$row['id']?></td>
+                                    <td><?=$row['id_konsumen']?></td>
                                     <td><?=$row['nama']?></td>
-                                    <td><?=$row['deskripsi']?></td>
-                                    <td><?=$row['harga']?></td>
+                                    <td><?=$row['username']?></td>
                                     <td>
                                         <?php 
-                                            echo "<a href='process.php?delete_produk=".$row['id']."'>Delete</a>";
+                                            echo "<a href='process.php?delete_produk=".$row['id_konsumen']."'>Delete</a>";
                                         ?>
                                     </td>
                                 </tr>
