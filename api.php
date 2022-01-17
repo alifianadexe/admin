@@ -3,7 +3,7 @@ include("koneksi.php");
 header('Content-type: application/json');
 
 if(isset($_GET["get_user"])){
-    $sql = "SELECT * FROM tbl_user WHERE username = '".$_GET["get_user"]."' AND password = '".$_GET["password"]."'";
+    $sql = "SELECT * FROM tbl_konsumen WHERE username = '".$_GET["get_user"]."' AND password = '".$_GET["password"]."'";
     $result = $conn->query($sql);
     $list_user = array();
     if($result){
